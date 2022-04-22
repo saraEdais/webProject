@@ -1,0 +1,97 @@
+body {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px;
+  display: flex;
+  height: 100%;
+}
+.image {
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-left: 35px;
+}
+.image img {
+  width: 100%;
+  height: 50%;
+}
+.appName {
+  font-size: 35px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.logInContainerDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 60%;
+  align-items: center;
+}
+.logInContainer {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 530px;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 8px;
+  padding: 30px 56px;
+}
+.logInContainer a {
+  color: #1a68ce;
+  text-decoration: none;
+  cursor: pointer;
+}
+.signIn {
+  font-size: 25px;
+  font-weight: 500;
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.loginForm div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+.loginForm label {
+  font-size: 19px;
+  margin: 5px 7px;
+}
+.textInput {
+  padding: 15px 10px;
+  border: 2px solid rgb(9, 4, 32);
+  border-radius: 5px;
+  margin: 5px 0px;
+  outline: none;
+}
+.textInput:focus {
+  border: 2px solid #1a68ce;
+}
+.submitButton {
+  width: 160px;
+  padding: 8px 15px;
+  background-color: #1877f2;
+  border: none;
+  border-radius: 8px;
+  font-size: 19px;
+  text-align: center;
+  margin: 100px auto;
+  color: white;
+  cursor: pointer;
+}
+.submitButton:hover {
+  background-color: #1a68ce;
+}
+.error{
+  color: red;
+  margin: 3px 6px;
+}

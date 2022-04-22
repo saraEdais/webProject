@@ -1,0 +1,105 @@
+.registerDiv {
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 580px;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 8px;
+  padding: 30px 56px;
+}
+.registerForm {
+  display: flex;
+  flex-direction: column;
+}
+.registerForm label {
+  font-size: 17px;
+  margin: 5px 7px;
+}
+.registerForm input {
+  padding: 9px 10px;
+  border: 2px solid rgb(9, 4, 32);
+  border-radius: 5px;
+  outline: none;
+}
+.registerForm input:focus {
+  border: 2px solid #1a68ce;
+}
+.registerInputDiv {
+  display: flex;
+  flex-direction: column;
+  margin:0px 0px 7px 0px;
+}
+.register {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.inputDiv {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 0px 5px 0px ;
+}
+.inputDiv div:first-child {
+  margin-right: 20px;
+  width: 100%;
+}
+.inputDiv div:last-child {
+  width: 100%;
+}
+.registerButton {
+  width: 160px;
+  padding: 8px 15px;
+  background-color: #1877f2;
+  border: none !important;
+  border-radius: 8px;
+  font-size: 19px;
+  text-align: center;
+  margin: 10px auto !important;
+  color: white;
+  cursor: pointer;
+}
+.registerButton:hover {
+  background-color: #1a68ce;
+}
+.success{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 8px;
+  padding: 30px 56px;
+  text-align: center;
+  align-items: center;
+}
+.success p{
+  color: rgb(15, 59, 15);
+  font-size: 19px;
+  font-weight: 600;
+}
+.success a{
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: green;
+  color: white;
+  width: 150px;
+  padding: 10px 0px;
+}
+.success a:hover{
+  background-color: rgb(17, 97, 17);
+}
+.error1{
+  color: red;
+  margin: 0px;
+}
