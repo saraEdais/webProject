@@ -95,3 +95,43 @@ body {
   color: red;
   margin: 3px 6px;
 }
+
+@media only screen and (max-width: 1024px){
+  body{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .image {
+    width: auto;
+    height: 150px;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 20px;
+    margin-top: 5px;
+    align-items: center;
+  }
+  .image img {
+    width: 50%;
+    height: 100%;
+  }
+  .appName {
+    text-align: start;
+    margin-bottom: 2px;
+  }
+  .logInContainerDiv {
+    display: block;
+    height: auto;
+    width: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .logInContainer {
+    width: 300px;
+    padding: 30px;
+    margin: 0px 5px;
+  }
+}

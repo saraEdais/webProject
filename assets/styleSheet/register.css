@@ -103,3 +103,42 @@
   color: red;
   margin: 0px;
 }
+
+@media only screen and (max-width: 1025px){
+  body{
+    height: 100%;
+    justify-content: center;
+  }
+  .registerDiv {
+    width:auto;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 670px){
+  body{
+    height: 100vh;
+    justify-content: center;
+  }
+  .registerContainer {
+    width: 360px;
+    height: auto;
+    margin: 0px 6px;
+  }
+  .inputDiv{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  body{
+    height: 100vh;
+    justify-content: center;
+  }
+  .registerContainer {
+    width: 250px;
+    height: auto;
+    margin: 0px 6px;
+  }
+}
