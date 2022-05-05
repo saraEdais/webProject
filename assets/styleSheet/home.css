@@ -203,7 +203,7 @@
     background-color: none;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1088px) {
     .contents{
         display: block;
         overflow: auto;
@@ -253,5 +253,14 @@
         cursor: pointer;
         position: absolute;
         right: 7%;
+    }
+}
+
+@media only screen and (max-width: 770px){
+    .addPost {
+        width: 85%;
+    }
+    .contents {
+        height: auto;
     }
 }

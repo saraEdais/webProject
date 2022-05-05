@@ -46,6 +46,7 @@ body {
 .subHeader div {
     margin: 0px 11px;
     cursor: pointer;
+    align-items: center;
 }
 
 .content {
@@ -462,5 +463,36 @@ body {
     }
     .closeFriendsList{
         display: block;
+    }
+}
+
+@media only screen and (max-width: 770px){
+    .posts {
+        width: 85%;
+    }
+    .content {
+        overflow: none;
+        height: 83vh;
+    }
+    .postContent {
+        height: auto;
+    }
+    .postContent img {
+        width: 49vw;
+    }
+    .postContent img {
+        height: 22vh;
+    }
+    .header {
+        flex-direction: column;
+    }
+    .subHeader {
+        margin: 11px 4px;
+    }
+    .postsPart{
+        margin: 3px;
+    }
+    .anchor {
+        margin: 2px;
     }
 }
