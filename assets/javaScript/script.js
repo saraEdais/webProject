@@ -5,4 +5,13 @@ $(document).ready(function () {
             $(".success").css("display", "flex");
         }
     };
+
+    $('#myTab a[href="#home"]').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      });
+      $('#myTab a[href="#profile"]').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      });
 });

@@ -27,8 +27,8 @@ if (isset($_POST['register'])) {
     }
     else{
         //inserted data to users table in mySQL
-        $sql = "INSERT INTO `users` (`username`,`firstName`,`lastName`,`password`,`telephone`,`address`,`email`,`gender`,`imageFile`)
-         VALUES ('$userName', '$firstName', '$lastName','$password','$telephoneNo','$address','$email','$gender','$imageFile')";
+        $sql = "INSERT INTO `users` (`username`,`firstName`,`lastName`,`password`,`telephone`,`address`,`email`,`gender`,`imageFile`,'active')
+         VALUES ('$userName', '$firstName', '$lastName','$password','$telephoneNo','$address','$email','$gender','$imageFile',1)";
         $resultInsert= mysqli_query($conn, $sql);
         if ($resultInsert) {
             echo "New record created successfully";

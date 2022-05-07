@@ -89,7 +89,7 @@ else{
                     <?php echo $username ?> </a>
                 <div><i class="fa fa-commenting" style="color:white;margin-left:5px"></i> Message</div>
                 <div id="friendIcon" class="friendIcon"><i class='fas fa-users' style='margin-left:5px'></i></div>
-                <a class="anchor" href="logout.php"><i class="fa fa-sign-out" style="margin-left:5px"></i> Logout</a>
+                <a class="anchor" href="logout.php?user=1"><i class="fa fa-sign-out" style="margin-left:5px"></i> Logout</a>
             </div>
         </div>
         <div class="contents">

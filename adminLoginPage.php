@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <title>FriendsBook</title>
     <link rel="stylesheet" href="./assets/styleSheet/login.css">
@@ -13,17 +12,12 @@
     <div class="logInContainerDiv">
         <div class="logInContainer">
             <div>
-                <span class="signIn">Sign In</span>
+                <span class="signIn">Admin SignIn</span>
             </div>
-            <p>
-                New User?
-                <a href="./registrationPage.php"> Create an account</a>
-            </p>
-            <a class="admin" href="adminLoginPage.php"><b>Admin User</b></a>
-            <form method="post" action="login.php" class="loginForm">
+            <form method="post" action="adminLogin.php" class="loginForm">
                 <div>
-                    <label>username</label>
-                    <input class="textInput" type="text" placeholder="username" name="username">
+                    <label>Admin name</label>
+                    <input class="textInput" type="text" placeholder="Admin name" name="adminName">
                 </div>
                 <div>
                     <label>password</label>
