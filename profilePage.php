@@ -17,7 +17,7 @@ if (isset($_SESSION['username'])) {
         $address=$row['address'];
     }
     // fetch all posts for this username
-    $posts="SELECT * FROM posts WHERE username ='$usernameProfile' ORDER BY createdTime DESC" ;
+    $posts="SELECT * FROM posts WHERE username ='$usernameProfile' AND activation=1 ORDER BY createdTime DESC" ;
     $userPosts = mysqli_query($conn, $posts);
 
     //select user friends
@@ -44,7 +44,6 @@ else{
     <title>profile Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="./assets/javaScript/script.js"></script>
 
     <link rel="stylesheet" href="../assets/styleSheet/profile.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -62,7 +61,7 @@ else{
                         style="color:white;margin-right:5px"></i>
                     <?php echo $usernameProfile ?> </a>
                 <div><i class="fa fa-commenting" style="color:white;margin-left:5px"></i> Message</div>
-                <div id="friendIcon" class="friendsIcon"><i class='fas fa-users' style='margin-left:5px'></i></div>
+                <div id="friendsIcon" class="friendsIcon" onclick="friendIconHandel()"><i class='fas fa-users' style='margin-left:5px'></i></div>
                 <a class="anchor" href="logout.php?user=1"><i class="fa fa-sign-out" style="margin-left:5px"></i> Logout</a>
             </div>
         </div>
@@ -82,7 +81,7 @@ else{
                     </div>
                 </div>
                 <div id="friends" class="friends">
-                    <div class="closeFriend"><i id="closeFriendList" class="fa fa-times closeFriendList"
+                    <div class="closeFriend"><i id="closeFriendList" onclick="closeFriendHandel()" class="fa fa-times closeFriendList"
                             style="font-size:18px"></i></div>
                     <label> <i class='fas fa-user-friends' style='font-size:22px;margin:6px 8px;'></i> My
                         Friends</label>
@@ -212,6 +211,7 @@ else{
                                 accept="image/*">
                             <input class="editSubmit" type="submit" name="editPost" value="Edit">
                         </form>
+                        <p><?php if(isset($_GET['error'])){echo $_GET['error'];}?></p>
                     </div>
                 </div>
                 <?php    } ?>
@@ -221,5 +221,4 @@ else{
     </div>
 </body>
 <script src="./assets/javaScript/script1.js"></script>
-
 </html>

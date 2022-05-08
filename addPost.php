@@ -4,41 +4,46 @@ require "db-conn.php";
 if (isset($_SESSION['username'])) {
     if (isset($_POST['postSubmit'])) {
         $username = $_SESSION['username'];
-        $postText = $_POST['postText'];
-        $postImage= $_POST['addImage'];
+        $postText = mysql_real_escape_String($_POST['postText']);
+        $postImage=  mysql_real_escape_String($_POST['addImage']);
+        $active=$_GET['active'];
 
-        //inserted the content of the post to a database if an image is get
-        if (!empty($postImage)) {
-            if (empty($postText)) {
-                header("location:homePage.php?&error=you should enter a text");
-                exit();
-            }
-            $sql = "INSERT INTO posts (username,textContent,imageContent,likes) VALUES ('$username','$postText','$postImage',0)";
-            $resultInsert = mysqli_query($conn, $sql);
-            if ($resultInsert) {
-                echo "New record created successfully";
-                header("location:homePage.php");
-                exit();
+        if ($active) {
+            //inserted the content of the post to a database if an image is get
+            if (!empty($postImage)) {
+                if (empty($postText)) {
+                    header("location:homePage.php?&error=you should enter a text");
+                    exit();
+                }
+                $sql = "INSERT INTO posts (username,textContent,imageContent,likes) VALUES ('$username','$postText','$postImage',0)";
+                $resultInsert = mysqli_query($conn, $sql);
+                if ($resultInsert) {
+                    header("location:homePage.php");
+                    exit();
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                if (empty($postText)) {
+                    header("location:homePage.php?error=you should enter a text");
+                    exit();
+                }
+                $sql = "INSERT INTO posts (username,textContent,likes) VALUES ('$username','$postText',0)";
+                $resultInsert = mysqli_query($conn, $sql);
+                if ($resultInsert) {
+                    header("location:homePage.php");
+                    exit();
+                } else {
+                    echo "Error: " . $sqlInsert . "<br>" . mysqli_error($conn);
+                }
             }
-        } else {
-            if (empty($postText)) {
-                header("location:homePage.php?error=you should enter a text");
-                exit();
-            }
-            $sql = "INSERT INTO posts (username,textContent,likes) VALUES ('$username','$postText',0)";
-            $resultInsert = mysqli_query($conn, $sql);
-            if ($resultInsert) {
-                echo "New record created successfully";
-                header("location:homePage.php");
-                exit();
-            } else {
-                echo "Error: " . $sqlInsert . "<br>" . mysqli_error($conn);
-            }
+        } 
+        else {
+            echo "error";
         }
-    } else {
-        echo "error";
+    }
+    else{
+        header("location:homePage.php?error= you don't have permission to post a post"); 
     }
 }
 else{

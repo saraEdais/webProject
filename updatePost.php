@@ -5,8 +5,8 @@ require "db-conn.php";
 if (isset($_SESSION['username'])) {
     if (isset($_POST['editPost']) && isset($_GET['postId'])) {
         $postId=$_GET['postId'];
-        $editText=$_POST['editText'];
-        $editImage=$_POST['editImage'];
+        $editText= mysql_real_escape_String($_POST['editText']);
+        $editImage= mysql_real_escape_String($_POST['editImage']);
 
         if (!empty($editImage)) {
             if (empty($editText)) {
@@ -16,7 +16,6 @@ if (isset($_SESSION['username'])) {
             $sql = "UPDATE posts SET textContent='$editText',imageContent='$editImage' WHERE postId=$postId";
             $resultInsert = mysqli_query($conn, $sql);
             if ($resultInsert) {
-                echo "record update successfully";
                 header("location:profilePage.php");
                 exit();
             } else {
@@ -30,7 +29,6 @@ if (isset($_SESSION['username'])) {
             $sql = "UPDATE posts SET textContent='$editText' WHERE postId=$postId";
             $resultInsert = mysqli_query($conn, $sql);
             if ($resultInsert) {
-                echo "record update successfully";
                 header("location:profilePage.php");
                 exit();
             } else {

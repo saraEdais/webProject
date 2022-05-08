@@ -448,6 +448,7 @@ body {
     .friends{
         display: none;
         width: auto;
+        height: 60vh;
         position: absolute;
         top: 6%;
         right: 5%;
