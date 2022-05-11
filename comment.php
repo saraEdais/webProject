@@ -3,7 +3,7 @@ session_start();
 require "db-conn.php";
 if (isset($_SESSION['username'])) {
     if (isset($_POST['commentSubmit'])) {
-        $comment= mysql_real_escape_String($_POST['comment']);
+        $comment= mysqli_real_escape_String($conn,$_POST['comment']);
         $username=$_SESSION['username'];
         $postId=$_GET['postId'];
         $page=$_GET['page'];

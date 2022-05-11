@@ -4,8 +4,8 @@ require "db-conn.php";
 if (isset($_SESSION['username'])) {
     if (isset($_POST['postSubmit'])) {
         $username = $_SESSION['username'];
-        $postText = mysql_real_escape_String($_POST['postText']);
-        $postImage=  mysql_real_escape_String($_POST['addImage']);
+        $postText = mysqli_real_escape_String($conn,$_POST['postText']);
+        $postImage=  mysqli_real_escape_String($conn,$_POST['addImage']);
         $active=$_GET['active'];
 
         if ($active) {

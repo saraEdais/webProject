@@ -5,8 +5,8 @@ require "db-conn.php";
 if (isset($_SESSION['username'])) {
     if (isset($_POST['editPost']) && isset($_GET['postId'])) {
         $postId=$_GET['postId'];
-        $editText= mysql_real_escape_String($_POST['editText']);
-        $editImage= mysql_real_escape_String($_POST['editImage']);
+        $editText= mysqli_real_escape_String($conn,$_POST['editText']);
+        $editImage= mysqli_real_escape_String($conn,$_POST['editImage']);
 
         if (!empty($editImage)) {
             if (empty($editText)) {

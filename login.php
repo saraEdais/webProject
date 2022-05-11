@@ -4,8 +4,8 @@ session_start();
 require "db-conn.php";
 
 if (isset($_POST['submit'])) {
-    $userName =  mysql_real_escape_String($_POST['username']);
-    $password =  mysql_real_escape_String($_POST['password']);
+    $userName = mysqli_real_escape_string($conn,$_POST['username']);
+    $password = mysqli_real_escape_string($conn,$_POST['password']);
     if(empty($userName) && empty($password)){
         header("location:loginPage.php?error=Username and password is required");
         exit();

@@ -100,6 +100,12 @@ else{
                                         class="sunSpan"><?php echo " (".$friend['username'].")"?></span></span>
                             </div>
                             <div>
+                            <!-- <button class="deleteButton">
+                                    <a
+                                        href="">
+                                        <i class='fas fa-comment-dots' style='font-size:22px;color:rgb(24, 4, 139);'></i>
+                                    </a>
+                                </button> -->
                                 <button class="deleteButton">
                                     <a
                                         href=<?php echo "friendsHandel.php?userId=".$userId."&friendId=".$friend['id']."&status=delete" ?>>
@@ -149,7 +155,7 @@ else{
                         <?php } ?>
                     </div>
                     <div id=<?php echo"postReact".$postId ?> class="postReact">
-                        <div class="react" onclick="commentHandel(<?php echo $postId ?>)">
+                        <div class="react"  onclick="commentHandel(<?php echo $postId ?>), commentsHandel(<?php echo $postId ?>)">
                             comment
                             <i class="fa fa-comment-o" style="font-size:19px;color:blue;margin-left:6px"></i>
                         </div>
@@ -169,29 +175,6 @@ else{
                         </div>
                     </div>
                     <div id=<?php echo"commentPart".$postId ?> class="comment">
-                        <form method="post" action=<?php echo"comment.php?postId=$postId&page=2" ?> class="commentForm">
-                            <input type="text" placeholder="type a comment" name="comment">
-                            <input type="submit" name="commentSubmit" value="add comment">
-                        </form>
-                        <?php
-                            $commentSql="SELECT * FROM comments WHERE postId='$postId' ORDER BY createdTime DESC";
-                            $comments=mysqli_query($conn,$commentSql);
-                            while($comment = mysqli_fetch_assoc($comments)){ 
-                                $usersComment=$comment['username'];
-                                $selectUser = "SELECT * FROM users WHERE username='$usersComment'";
-                                $selectResults = mysqli_query($conn, $selectUser);
-                                $userRow=mysqli_fetch_assoc($selectResults);
-                            ?>
-                        <div class="commentList">
-                            <div class="userComment">
-                                <img src=<?php echo "./assets/images/".$userRow['imageFile'] ?> class="userImage">
-                                <h5><?php echo $userRow['firstName']." ".$userRow['lastName'] ?></h5>
-                            </div>
-                            <div class="commentText">
-                                <?php echo $comment['comment'] ?>
-                            </div>
-                        </div>
-                        <?php } ?>
                     </div>
                 </div>
                 <!-------------------- Edit Part ------------------->

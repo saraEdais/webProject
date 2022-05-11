@@ -11,14 +11,15 @@ if (isset($_SESSION['username'])) {
     $firstName=$row['firstName'];
     $lastName=$row['lastName'];
     $image=$row['imageFile'];
+    $active=$row['active'];
 
     //selected all posts for user and user friends from database
     $posts="(
-            SELECT * FROM posts WHERE username='$username'
+            SELECT * FROM posts WHERE username='$username' AND activation=1
         )
         UNION
         (
-            SELECT * FROM posts WHERE username IN 
+            SELECT * FROM posts WHERE activation=1 AND username IN 
             (SELECT username FROM users WHERE id IN 
             (SELECT friendId FROM friends WHERE status ='friend' AND userId='$userId'))
         )
@@ -88,8 +89,10 @@ else{
                         style="color:white;margin-right:5px"></i>
                     <?php echo $username ?> </a>
                 <div><i class="fa fa-commenting" style="color:white;margin-left:5px"></i> Message</div>
-                <div id="friendIcon" class="friendIcon"><i class='fas fa-users' style='margin-left:5px'></i></div>
-                <a class="anchor" href="logout.php?user=1"><i class="fa fa-sign-out" style="margin-left:5px"></i> Logout</a>
+                <div id="friendIcon" class="friendIcon" onclick="iconClickHandel()"><i class='fas fa-users'
+                        style='margin-left:5px'></i></div>
+                <a class="anchor" href="logout.php?user=1"><i class="fa fa-sign-out" style="margin-left:5px"></i>
+                    Logout</a>
             </div>
         </div>
         <div class="contents">
@@ -100,11 +103,11 @@ else{
                         <h3><?php echo $firstName." ".$lastName ?></h3>
                     </div>
                     <div class="postText">
-                        <form method="post" action=<?php echo "addPost.php"?>>
+                        <form method="post" action=<?php echo "addPost.php?active=$active"?>>
                             <textarea rows="3" cols="40" placeholder="write a post" name="postText"></textarea>
-                            <label id="addImage"><i class="fa fa-file-image-o"
+                            <label id="addPostImage" onclick="addPostImage()"><i class="fa fa-file-image-o"
                                     style="font-size:24px;margin:0px 4px;cursor:pointer"></i></label>
-                            <input id="image" class="imageInput" type="file" name="addImage" accept="image/*">
+                            <input id="postImage" class="imageInput" type="file" name="addImage" accept="image/*">
                             <input class="submitPost" type="submit" name="postSubmit" value="addPost">
                         </form>
                         <?php
@@ -143,12 +146,12 @@ else{
                         <?php } ?>
                     </div>
                     <div id=<?php echo"postReact".$postId ?> class="postReact">
-                        <div class="react" onclick="commentHandel(<?php echo $postId ?>)">
+                        <div class="react" onclick="commentHandel(<?php echo $postId ?>), commentsHandel(<?php echo $postId ?>)">
                             comment
                             <i class="fa fa-comment-o" style="font-size:19px;color:blue;margin-left:6px"></i>
                         </div>
                         <!--------------------likes part---------------------->
-                        <div class="react">
+                        <div class="react" id="like">
                             <form method="post" action=<?php echo"like.php?postId=$postId&page=1" ?>>
                                 <?php if(in_array($postId,$likesArray)){?>
                                 <label><?php if ($post['likes']>0) {echo $post['likes'];} ?></label>
@@ -165,29 +168,6 @@ else{
                     </div>
                     <!-------------------- comments part  -------------------->
                     <div id=<?php echo"commentPart".$postId ?> class="comment">
-                        <form method="post" action=<?php echo"comment.php?postId=$postId&page=1" ?> class="commentForm">
-                            <input type="text" placeholder="type a comment" name="comment">
-                            <input type="submit" name="commentSubmit" value="add comment">
-                        </form>
-                        <?php
-                            $commentSql="SELECT * FROM comments WHERE postId='$postId' ORDER BY createdTime DESC";
-                            $comments=mysqli_query($conn,$commentSql);
-                            while($comment = mysqli_fetch_assoc($comments)){ 
-                                $usersComment=$comment['username'];
-                                $selectUser = "SELECT * FROM users WHERE username='$usersComment'";
-                                $selectResults = mysqli_query($conn, $selectUser);
-                                $userRow=mysqli_fetch_assoc($selectResults);
-                            ?>
-                        <div class="commentList">
-                            <div class="userComment">
-                                <img src=<?php echo "./assets/images/".$userRow['imageFile'] ?> class="userImage">
-                                <h5><?php echo $userRow['firstName']." ".$userRow['lastName'] ?></h5>
-                            </div>
-                            <div class="commentText">
-                                <?php echo $comment['comment'] ?>
-                            </div>
-                        </div>
-                        <?php } ?>
                     </div>
                 </div>
                 <?php    } ?>
@@ -196,8 +176,8 @@ else{
             <!--------------suggestedFriends and request add----------------->
             <div id="friendsPart" class="friendsPart">
                 <div class="friendRequest">
-                    <div class="closeFriends"><i id="closeFriendsList" class="fa fa-times closeFriendsList"
-                            style="font-size:18px"></i></div>
+                    <div class="closeFriends"><i id="closeFriendsList" onclick="closeFriendsHandel()"
+                            class="fa fa-times closeFriendsList" style="font-size:18px"></i></div>
                     <label>Friend requests</label>
                     <div class="list">
                         <?php
@@ -269,4 +249,5 @@ else{
     </div>
 </body>
 <script src="./assets/javaScript/script1.js"></script>
+
 </html>

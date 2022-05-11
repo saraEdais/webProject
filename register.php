@@ -3,15 +3,15 @@
 require "db-conn.php";
 
 if (isset($_POST['register'])) {
-    $firstName =  mysql_real_escape_String($_POST['firstName']);
-    $lastName =  mysql_real_escape_String($_POST['lastName']);
-    $userName =  mysql_real_escape_String($_POST['username']);
-    $password =  mysql_real_escape_String($_POST['password']);
-    $gender =  mysql_real_escape_String($_POST['gender']);
-    $email =  mysql_real_escape_String($_POST['email']);
-    $telephoneNo =  mysql_real_escape_String($_POST['telephoneNo']);
-    $address =  mysql_real_escape_String($_POST['address']);
-    $imageFile =  mysql_real_escape_String($_POST["imageFile"]);
+    $firstName =  mysqli_real_escape_String($coon,$_POST['firstName']);
+    $lastName =  mysqli_real_escape_String($coon,$_POST['lastName']);
+    $userName =  mysqli_real_escape_String($coon,$_POST['username']);
+    $password =  mysqli_real_escape_String($coon,$_POST['password']);
+    $gender =  mysqli_real_escape_String($coon,$_POST['gender']);
+    $email =  mysqli_real_escape_String($coon,$_POST['email']);
+    $telephoneNo =  mysqli_real_escape_String($coon,$_POST['telephoneNo']);
+    $address =  mysqli_real_escape_String($coon,$_POST['address']);
+    $imageFile =  mysqli_real_escape_String($coon,$_POST["imageFile"]);
 
     //check if all requirement is fill
     if (empty($firstName) || empty($lastName) || empty($password) || empty($userName) || empty($gender) || empty($email) || empty($telephoneNo) || empty($address) || empty($imageFile)) {
