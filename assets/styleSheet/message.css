@@ -1,0 +1,104 @@
+.messageSide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+.friendsMessageList {
+    width: 310px;
+    height: 86vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 4px 1px 10px 1px #b7b7b8;
+    border-radius: 5px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 13px 0px 0px 5px;
+    padding: 15px;
+}
+.friendsMessageList label{
+    font-size: 19px;
+    margin: 5px 0px 20px 0px;
+    border-bottom: 1px solid gray;
+}
+.messageContent{
+    background-color: white;
+    width: 84%;
+    height: 84vh;
+    margin: 13px 0px 0px 5px;
+    box-shadow: 4px 1px 10px 1px #b7b7b8;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.messageHeader{
+    height: 7vh;
+    align-items: center;
+    padding-top: 8px;
+}
+.messageBody{
+    height: 86vh;
+    overflow-y: auto;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.messageBody h4{
+    text-align: center;
+}
+.sendMessage{
+    height: 7vh;
+    margin-top: 5px;
+}
+.messageList{
+    margin: 10px 0px ;
+    padding: 5px 0px;
+    display: flex;
+}
+.userName{
+    display: flex;
+    flex-direction: row;
+    padding: 3px 5px 2px 10px;
+}
+.userName h5{
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 5px 0px 0px -9px ;
+}
+.userImage{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin: 0px 15px 0px 0px;
+}
+.messageText{
+    align-items: center;
+    background-color: #f2f2f7;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px 20px 5px 10px;
+    margin: 4px;
+}
+.sendMessage form{
+    width: 100%;
+}
+.sendMessage .messageInput{
+    width: 85%;
+    height: 35px;
+    margin: 5px 8px; 
+    padding: 2px 8px;
+    border-radius: 5px;
+    background: none;
+    border: none;
+}
+.sendButton{
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+}
