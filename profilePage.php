@@ -54,13 +54,13 @@ else{
         <div class="header">
             <div class="title">
                 <img src="./assets/images/people1.png">
-                <a class="anchor" href=<?php echo"./homePage.php"?>>FriendsBook</a>
+                <a class="anchor" href="./homePage.php">FriendsBook</a>
             </div>
             <div class="subHeader">
-                <a class="anchor" href=<?php echo "profilePage.php" ?>> <i class="fa fa-user"
+                <a class="anchor" href="profilePage.php"> <i class="fa fa-user"
                         style="color:white;margin-right:5px"></i>
                     <?php echo $usernameProfile ?> </a>
-                <div><i class="fa fa-commenting" style="color:white;margin-left:5px"></i> Message</div>
+                <a class="anchor" href="profilePage.php"><i class="fa fa-commenting" style="color:white;margin-left:5px"></i> Message</a>
                 <div id="friendsIcon" class="friendsIcon" onclick="friendIconHandel()"><i class='fas fa-users' style='margin-left:5px'></i></div>
                 <a class="anchor" href="logout.php?user=1"><i class="fa fa-sign-out" style="margin-left:5px"></i> Logout</a>
             </div>
@@ -100,12 +100,12 @@ else{
                                         class="sunSpan"><?php echo " (".$friend['username'].")"?></span></span>
                             </div>
                             <div>
-                            <!-- <button class="deleteButton">
+                                <button class="deleteButton">
                                     <a
-                                        href="">
+                                        href=<?php echo "messagesPage.php?userId=".$userId."&friendId=".$friend['id']?>>
                                         <i class='fas fa-comment-dots' style='font-size:22px;color:rgb(24, 4, 139);'></i>
                                     </a>
-                                </button> -->
+                                </button>
                                 <button class="deleteButton">
                                     <a
                                         href=<?php echo "friendsHandel.php?userId=".$userId."&friendId=".$friend['id']."&status=delete" ?>>

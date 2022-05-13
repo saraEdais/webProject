@@ -44,6 +44,7 @@ function commentsHandel(postId) {
     document.getElementById("postReact" + postId).style.borderBottom = "1px solid gray";
 };
 
+//comments handel using AJAX
 function commentHandel(postId) {
     var xmlhttp;
     if (window.XMLHttpRequest) {   // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -60,3 +61,4 @@ function commentHandel(postId) {
     xmlhttp.open("GET", "commentList.php?postId="+postId, true);
     xmlhttp.send();
 }
+

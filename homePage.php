@@ -57,6 +57,9 @@ if (isset($_SESSION['username'])) {
     while ($likes=mysqli_fetch_array($likesResult)) {
         array_push($likesArray, $likes['postId']);
     };
+
+   
+
 }
 else{
     header("location:loginPage.php");
@@ -82,17 +85,16 @@ else{
         <div class="header">
             <div class="title">
                 <img src="./assets/images/people1.png">
-                <a class="anchor" href=<?php echo"homePage.php" ?>>FriendsBook</a>
+                <a class="anchor" href="homePage.php">FriendsBook</a>
             </div>
             <div class="subHeader">
-                <a class="anchor" href=<?php echo "profilePage.php" ?>> <i class="fa fa-user"
+                <a class="anchor" href="profilePage.php"> <i class="fa fa-user"
                         style="color:white;margin-right:5px"></i>
                     <?php echo $username ?> </a>
-                <div><i class="fa fa-commenting" style="color:white;margin-left:5px"></i> Message</div>
+                <a class="anchor" href="profilePage.php"><i class="fa fa-commenting" style="color:white;margin-left:5px"  id="notification"></i> Message</a>
                 <div id="friendIcon" class="friendIcon" onclick="iconClickHandel()"><i class='fas fa-users'
                         style='margin-left:5px'></i></div>
-                <a class="anchor" href="logout.php?user=1"><i class="fa fa-sign-out" style="margin-left:5px"></i>
-                    Logout</a>
+                <a class="anchor" href="logout.php?user=1"><i class="fa fa-sign-out" style="margin-left:5px"></i>Logout</a>
             </div>
         </div>
         <div class="contents">

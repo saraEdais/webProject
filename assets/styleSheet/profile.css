@@ -119,6 +119,7 @@ body {
     margin: 13px 0px 0px 5px;
     padding: 15px;
 }
+
 .friends label{
     font-size: 19px;
     margin: 5px 0px 20px 0px;
@@ -276,9 +277,29 @@ body {
 .react:hover {
     background-color: rgb(231, 232, 233);
 }
-
+.like{
+    background-color: white;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.like:hover{
+    background-color:  rgb(231, 232, 233);
+}
+.unlike{
+    background-color: white;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.unlike:hover{
+    background-color:  rgb(231, 232, 233);
+}
 .comment {
-    display: none;
     flex-direction: column;
     margin: 10px 0px 3px 0px;
 }
