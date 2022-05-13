@@ -91,6 +91,7 @@ else {
                         <input class="messageInput" placeholder="type your message" name="message"></input>
                         <input class="sendButton" type="submit" name="sendMessage" value="Send">
                     </form>
+                    <p><?php if(isset($_GET['error'])){ echo $_GET['error'];} ?></p>
                 </div>
             </div>
         </div>
