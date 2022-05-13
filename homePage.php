@@ -58,8 +58,6 @@ if (isset($_SESSION['username'])) {
         array_push($likesArray, $likes['postId']);
     };
 
-   
-
 }
 else{
     header("location:loginPage.php");
