@@ -23,7 +23,8 @@ if (isset($_SESSION['username'])) {
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            } else {
+            } 
+            else {
                 if (empty($postText)) {
                     header("location:homePage.php?error=you should enter a text");
                     exit();
@@ -38,12 +39,9 @@ if (isset($_SESSION['username'])) {
                 }
             }
         } 
-        else {
-            echo "error";
+        else{
+            header("location:homePage.php?error= you don't have permission to post a post"); 
         }
-    }
-    else{
-        header("location:homePage.php?error= you don't have permission to post a post"); 
     }
 }
 else{
